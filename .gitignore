@@ -1,2 +1,6 @@
 yarn.lock
 node_modules/
+.cache/
+yarn-error.log
+elm-stuff/
+serve/
