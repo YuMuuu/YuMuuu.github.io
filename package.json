@@ -1,0 +1,11 @@
+{
+  "name": "top-page",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:YuMuuu/top-page.git",
+  "author": "三浦勇 <@curelemonade2>",
+  "license": "MIT",
+  "devDependencies": {
+    "elm": "0.19"
+  }
+}
