@@ -8,4 +8,9 @@
   "devDependencies": {
     "elm": "0.19"
   }
+},
+"scripts": {
+  "serve": "parcel src/index.html",
+  "build": "parcel build src/index.html",
+  "elm init": "./node_modules/elm/bin/elm init"
 }
