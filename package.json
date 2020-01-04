@@ -15,5 +15,8 @@
     "serve": "./node_modules/.bin/parcel ./src/index.html --out-dir ./serve",
     "build": "./node_modules/.bin/parcel build ./src/index.html --out-dir ./",
     "elm init": "./node_modules/elm/bin/elm init"
+  },
+  "dependencies": {
+    "bulma": "^0.8.0"
   }
 }
