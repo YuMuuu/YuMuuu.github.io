@@ -1,5 +1,5 @@
 ## url 
-[Github Pages](https://yumuuu.github.io/index.html)
+[Github Pages](https://yumuuu.github.io/)
 
 ## scripts
 yarn scripts

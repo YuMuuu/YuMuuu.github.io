@@ -82,28 +82,30 @@ view : Model -> Browser.Document Msg
 view model =
   { title = "きゅあれもねーどの魔導書"
   , body =
-      [ h1 [] [ text "きゅあれもねーどの魔導書" ]
-      , ul []
-          [ viewLink "/home"
-          , viewLink "/profile"
-          ]
-      , case routeFromUrl model.url of
-         Just route ->
-           case route of
-             Home ->
-               homePage
+      [ header
+      , navbar
+      , section [ class "section" ] [
+          div [ class "container" ] [
+              case routeFromUrl model.url of
+                Just route ->
+                  case route of
+                    Home ->
+                      homePage
 
-             Profile ->
-               profilePage
-         Nothing ->
-           notFountPage
+                    Profile ->
+                      profilePage
+                Nothing ->
+                  notFountPage
+          ]
+        ]
+    --   , footer1
       ]
+
   }
 
 
 viewLink : String -> Html msg
-viewLink path =
-  li [] [ a [ href path ] [ text path ] ]
+viewLink path =  a [ class "navbar-item", href path ] [ text path ]
 
 
 -- Route
@@ -135,15 +137,46 @@ showRoute route =
 
 -- Page
 
+header: Html msg
+header =
+  section [ class "hero is-dark" ] [
+      div [ class "hero-body" ] [
+        h1 [ class "title" ] [
+            text "きゅあれもねーどの魔導書"
+        ]
+      ]
+  ]
+
+navbar: Html msg
+navbar =
+  nav [
+    class "navbar is-light"
+    , attribute "role" "navigation"
+    , attribute "aria-label" "main navigation"
+  ]
+  [
+    div [ class "navbar-brand" ]
+    [ viewLink "home"
+    , viewLink "profile"
+    ]
+  ]
+
+footer1 : Html msg
+footer1 = footer [class "fotter"]
+  [ div [ class "content has-text-centered"] [
+      p [] [ text "fotter" ]
+  ]
+
+  ]
+
 
 homePage : Html msg
 homePage =
-  a [] [ text "Hello World!" ]
+  p [] [ text "Hello World!" ]
 
 profilePage: Html msg
 profilePage =
-  a [] [ text "わたしはきゅあれもねーどです" ]
+  p [] [ text "我が名はきゅあれもねーど！世のダークコーディングを倒すよ！" ]
 
 notFountPage: Html msg
-notFountPage =
-  a [] [ text "not found" ]
+notFountPage = p [] [ text "not found" ]
