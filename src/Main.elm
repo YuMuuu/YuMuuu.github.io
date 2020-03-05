@@ -105,7 +105,7 @@ view model =
 
 
 viewLink : String -> Html msg
-viewLink path =  a [ class "navbar-item", href path ] [ text path ]
+viewLink path =  a [ class "navbar-item", href ("#" ++ path) ] [ text path ]
 
 
 -- Route
@@ -115,14 +115,17 @@ type Route
 
 routeFromUrl : Url.Url -> Maybe Route
 routeFromUrl url =
-  case url.path of
-    "/home" ->
+  case url.fragment of
+    Just "home" ->
       Just Home
 
-    "/profile" ->
+    Just "profile" ->
       Just Profile
 
     _ ->
+        -- let
+        --     Debug.log url.path
+        -- in
       Nothing
 
 showRoute : Route -> String
